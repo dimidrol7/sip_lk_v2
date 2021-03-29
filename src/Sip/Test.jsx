@@ -6,7 +6,7 @@ const Test =(props)=> {
     return (
 
 
-       /* <Provider store={props.store}>*/
+        <Provider store={props.store}>
 
             <HashRouter>
                 <div>
@@ -36,7 +36,7 @@ const Test =(props)=> {
                     </div>
                 </div>
             </HashRouter>
-     /*   </Provider>*/
+        </Provider>
 
 
     )

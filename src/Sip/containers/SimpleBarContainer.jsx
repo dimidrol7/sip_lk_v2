@@ -39,7 +39,7 @@ SimpleBarContainer.propTypes = {
 };
 
 const mapStateToProps = state => ({
-    isLogin:state.sip.simpleBar.isLogin,
+    isLogin: state.sip.simpleBar.isLogin,
     isAuth: state.sip.simpleBar.isAuth || true,
     title: state.sip.simpleBar.title,
 });
@@ -62,8 +62,8 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => Object.assign({},
     });
 
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps, mergeProps)(SimpleBarContainer));
-/*export default SimpleBarContainer;*/
+/*export default withRouter(connect(mapStateToProps, mapDispatchToProps, mergeProps)(SimpleBarContainer));*/
+export default connect(mapStateToProps, mapDispatchToProps)(SimpleBarContainer);
 // export default connect(
 //     mapStateToProps,
 //     mapDispatchToProps,

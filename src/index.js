@@ -16,9 +16,9 @@ import {combineReducers, createStore} from "redux";
     ))}));*/
 /*const store = {simpleBar};*/
 
-let reducers = combineReducers({
+let reducers = combineReducers({sip:combineReducers({
     simpleBar: simpleBar
-});
+})});
 
 let store = createStore(reducers);
 
