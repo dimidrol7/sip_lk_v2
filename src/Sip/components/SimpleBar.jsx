@@ -30,7 +30,7 @@ const SimpleBar = props => {
         <AppBar position="static" color="default">
             <Toolbar>
                 <Typography variant="h6" color="inherit" style = {styles.title}>
-                    {title || "SIP-ЛК"}
+                    {title || "SIP-ЛК2"}
                 </Typography>
                 {isAuth && <div style = {styles.buttonsComponent}>
                     <div style = {isLogin ? styles.disabledWrapper : styles.enabledWrapper}>

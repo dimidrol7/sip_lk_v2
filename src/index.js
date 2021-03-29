@@ -3,12 +3,31 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import Test from "./Sip/Test";
+import {simpleBar} from './Sip/reducers/SimpleBarReducer';
+import {combineReducers, createStore} from "redux";
+
+/*const store = configureStore('sip', combineReducers({sip: combineReducers(Object.assign(
+        {},
+        { login },
+        { sip },
+        { simpleBar },
+        { settings }
+    ))}));*/
+/*const store = {simpleBar};*/
+
+let reducers = combineReducers({
+    simpleBar: simpleBar
+});
+
+let store = createStore(reducers);
+
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+    <React.StrictMode>
+        <Test store={store}/>
+    </React.StrictMode>,
+    document.getElementById('root')
 );
 
 // If you want to start measuring performance in your app, pass a function

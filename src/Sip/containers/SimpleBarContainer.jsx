@@ -18,9 +18,12 @@ const styles = () => ({
 
 class SimpleBarContainer extends React.PureComponent {
     render() {
+        /*console.log(this.props)*/
         return (
+
             <SimpleBar isLogin={this.props.isLogin}
                        isAuth={this.props.isAuth}
+                       /*isAuth='true'*/
                        title={this.props.title}
             />
         );
@@ -60,7 +63,7 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => Object.assign({},
 
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps, mergeProps)(SimpleBarContainer));
-
+/*export default SimpleBarContainer;*/
 // export default connect(
 //     mapStateToProps,
 //     mapDispatchToProps,
