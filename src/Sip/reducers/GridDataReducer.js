@@ -48,4 +48,4 @@ export const uncheckedBoxAC = (rowId) => ({type: UNCHECKED, rowId})
 export const setGridAC = (tableData) => ({type: LOADGRID, tableData})
 
 
-//export default gridData();
+/*export default gridData();*/

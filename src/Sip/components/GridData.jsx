@@ -35,17 +35,17 @@ import TableRow from '@material-ui/core/TableRow';
 let GridData = (props) => {
 
     /*const { objTableID,dataTable,arrNumbers,numberValue,onChangeParam,classes} = props;*/
-    debugger
-    console.log(props.state.tableData.id);
+    //debugger
+    //console.log(props.tableData.id);
     return (
     <div>
         GRIDDATA WILL BE HERE
 
-        {
+{/*        {
 
             props.tableData.map( r => <div key={r.id}>
             </div>)
-        }
+        }*/}
 
 
 
