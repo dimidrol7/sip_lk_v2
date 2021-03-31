@@ -1,36 +1,51 @@
 const CHECKED = 'CHECKED';
 const UNCHECKED = 'UNCHECKED';
+const LOADGRID = 'LOADGRID';
 
-let initialState ={
+let initialState = {
     tableData:[
         {id:1, numberPhone:9055682901, check:true}
     ],
-    arrNumbers:[],
+    arrNumbers:[-1,0],
     numberValue:'-1'
 }
 
-const gridDataReducer = (state = initialState, action) =>
+export const gridData = (state = initialState, action) =>
 {
     switch (action.type) {
         case CHECKED:
-            let stateCopy = {...state,
+            return {
+                ...state,
                 rows: [...state.rows.map( r => {
                     if (r.id === action.rowId) {
-                        return {...u, check:true}
+                        return {...r, check:true}
                     }
 
                 return r})]
             }
         case UNCHECKED:
+            return {
+                ...state,
+                rows: [...state.rows.map( r => {
+                    if (r.id === action.rowId) {
+                        return {...r, check:false}
+                    }
 
+                    return r})]
+            }
+        case LOADGRID:
+            return {
+                ...state,tableData: action.tableData
+            }
         default:
-            return this.state.
+            return state
     }
 
 }
 
 export const checkedBoxAC = (rowId) => ({type: CHECKED, rowId})
 export const uncheckedBoxAC = (rowId) => ({type: UNCHECKED, rowId})
+export const setGridAC = (tableData) => ({type: LOADGRID, tableData})
 
 
-export default gridDataReducer();
+//export default gridData();

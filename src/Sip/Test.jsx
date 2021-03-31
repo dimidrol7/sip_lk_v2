@@ -1,7 +1,7 @@
 import {Provider} from "react-redux";
 import {HashRouter, Route} from "react-router-dom";
 import SimpleBarContainer from "./containers/SimpleBarContainer";
-import GridData from "./components/GridData";
+import GridDataContainer from "./containers/GridDataContainer";
 
 const Test =(props)=> {
     return (
@@ -38,7 +38,7 @@ const Test =(props)=> {
                             render={() => {
                                 /*this.props.setIsLogin(true);*/
                                   console.log('route to /login');
-                                return <GridData />/*<LoginForm/>*/;
+                                return <GridDataContainer />/*<LoginForm/>*/;
                             }}
                         />
                     </div>
