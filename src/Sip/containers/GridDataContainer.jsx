@@ -2,7 +2,7 @@ import React from "react";
 import GridData from "../components/GridData";
 import {connect} from "react-redux";
 import { withStyles } from '@material-ui/core/styles';
-import {checkedBoxAC, setGridAC, uncheckedBoxAC} from "../reducers/GridDataReducer";
+import {checkedBoxAC, gridData, setGridAC, uncheckedBoxAC} from "../reducers/GridDataReducer";
 import SimpleBar from "../components/SimpleBar";
 import * as constants from "../Constants";
 
@@ -43,7 +43,7 @@ render() {
 
 let mapStateToProps = (state) => {
     return {
-        tableData: state.tableData
+        tableData: state.sip.gridData.tableData
     }
 
 }
@@ -64,4 +64,7 @@ let mapDispatchToProps = (dispatch) => {
 }
 
 /*export default connect(mapStateToProps,mapDispatchToProps)(withStyles(styles)(GridDataContainer));*/
+//export default connect(mapStateToProps,mapDispatchToProps)(GridData);
+
+//export default connect(mapStateToProps,mapDispatchToProps)(GridDataContainer);
 export default connect(mapStateToProps,mapDispatchToProps)(GridData);

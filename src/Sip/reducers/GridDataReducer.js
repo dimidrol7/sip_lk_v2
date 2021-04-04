@@ -4,19 +4,21 @@ const LOADGRID = 'LOADGRID';
 
 let initialState = {
     tableData:[
-        {id:1, numberPhone:9055682901, check:true}
+        {id:1, numberPhone:9055682902, check:true},
+        {id:2, numberPhone:9055682331, check:false}
     ],
     arrNumbers:[-1,0],
     numberValue:'-1'
 }
 
-export const gridData = (state = initialState, action) =>
+const gridData = (state = initialState, action) =>
 {
+debugger
     switch (action.type) {
         case CHECKED:
             return {
                 ...state,
-                rows: [...state.rows.map( r => {
+                tableData: [...state.tableData.map( r => {
                     if (r.id === action.rowId) {
                         return {...r, check:true}
                     }
@@ -26,7 +28,7 @@ export const gridData = (state = initialState, action) =>
         case UNCHECKED:
             return {
                 ...state,
-                rows: [...state.rows.map( r => {
+                tableData: [...state.tableData.map( r => {
                     if (r.id === action.rowId) {
                         return {...r, check:false}
                     }
@@ -48,4 +50,4 @@ export const uncheckedBoxAC = (rowId) => ({type: UNCHECKED, rowId})
 export const setGridAC = (tableData) => ({type: LOADGRID, tableData})
 
 
-/*export default gridData();*/
+export default gridData;

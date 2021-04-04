@@ -1,5 +1,5 @@
 import React from "react";
-
+//TODO по поводу импорта стилей смотреть например видео номер 49 тайминг 48:11
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 
@@ -8,6 +8,7 @@ import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
+import {checkedBoxAC} from "../reducers/GridDataReducer";
 
 
 
@@ -32,20 +33,32 @@ import TableRow from '@material-ui/core/TableRow';
 
 
 
-let GridData = (props) => {
+let GridData = props => {
 
     /*const { objTableID,dataTable,arrNumbers,numberValue,onChangeParam,classes} = props;*/
-    //debugger
-    //console.log(props.tableData.id);
+
+    console.log(props.tableData);
+    debugger
+    props.loadgrid(props.tableData);
     return (
     <div>
-        GRIDDATA WILL BE HERE
 
-{/*        {
+        GRIDDATA WILL BE HERE2
 
-            props.tableData.map( r => <div key={r.id}>
-            </div>)
-        }*/}
+        {
+
+            props.tableData.map( r => <div key={r.id}>{r.numberPhone}<span>
+            <div></div>
+            <div>
+                {r.check
+                    ? <button onClick={ () => {props.unchecked(r.id) } }>unchecked</button>
+                    : <button onClick={()=>{props.checked(r.id)}}>checked</button>}
+
+            </div>
+            </span></div>
+            )
+
+        }
 
 
 

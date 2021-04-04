@@ -5,7 +5,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import Test from "./Sip/Test";
 import {simpleBar} from './Sip/reducers/SimpleBarReducer';
-import {gridData} from './Sip/reducers/GridDataReducer';
+import gridData from './Sip/reducers/GridDataReducer';
 import {combineReducers, createStore} from "redux";
 
 /*const store = configureStore('sip', combineReducers({sip: combineReducers(Object.assign(

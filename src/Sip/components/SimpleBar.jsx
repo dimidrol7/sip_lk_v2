@@ -26,6 +26,7 @@ const styles = {
 
 const SimpleBar = props => {
     const {isAuth,isLogin, title} = props;
+    //debugger
     return (
         <AppBar position="static" color="default">
             <Toolbar>
