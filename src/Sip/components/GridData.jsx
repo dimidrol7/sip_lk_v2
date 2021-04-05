@@ -40,6 +40,7 @@ let GridData = props => {
     console.log(props.tableData);
     debugger
     props.loadgrid(props.tableData);
+    //TODO Эта верхняя строчка говнокод
     return (
     <div>
 
