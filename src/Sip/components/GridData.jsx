@@ -40,7 +40,7 @@ let GridData = props => {
 
     console.log(props.tableData);
     //debugger
-    props.loadgrid(props.tableData);
+    //props.loadgrid(props.tableData);
     //TODO Эта верхняя строчка говнокод
 
     //http://192.168.35.4/admclntlk/cdrclnt.php
