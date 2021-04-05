@@ -9,6 +9,7 @@ import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import {checkedBoxAC} from "../reducers/GridDataReducer";
+import * as axios from "axios";
 
 
 
@@ -38,9 +39,18 @@ let GridData = props => {
     /*const { objTableID,dataTable,arrNumbers,numberValue,onChangeParam,classes} = props;*/
 
     console.log(props.tableData);
-    debugger
+    //debugger
     props.loadgrid(props.tableData);
     //TODO Эта верхняя строчка говнокод
+
+    //http://192.168.35.4/admclntlk/cdrclnt.php
+    //https://social-network.samuraijs.com/api/1.0/users
+    //https://social-network.samuraijs.com/docs
+    axios.get("http://192.168.35.4/admclntlk/cdrclnt.php").then(responce => {
+        debugger;
+        props.loadgrid(responce.data.table)
+    });
+
     return (
     <div>
 
