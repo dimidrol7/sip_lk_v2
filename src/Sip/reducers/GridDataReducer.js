@@ -13,7 +13,7 @@ let initialState = {
 
 const gridData = (state = initialState, action) =>
 {
-debugger
+//debugger
     switch (action.type) {
         case CHECKED:
             return {

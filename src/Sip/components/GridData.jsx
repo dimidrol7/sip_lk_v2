@@ -39,6 +39,7 @@ let GridData = props => {
     /*const { objTableID,dataTable,arrNumbers,numberValue,onChangeParam,classes} = props;*/
 
     console.log(props.tableData);
+    console.log(props.tableData.length);
     //debugger
     //props.loadgrid(props.tableData);
     //TODO Эта верхняя строчка говнокод
@@ -46,11 +47,19 @@ let GridData = props => {
     //http://192.168.35.4/admclntlk/cdrclnt.php
     //https://social-network.samuraijs.com/api/1.0/users
     //https://social-network.samuraijs.com/docs
-    axios.get("http://192.168.35.4/admclntlk/cdrclnt.php").then(responce => {
-        debugger;
+if (props.tableData.length<5)
+{
+    let params = {'HTTP_CONTENT_LANGUAGE': 'ru-RU'}
+    let headers = {
+        'Access-Control-Allow-Origin': '1localhost',
+        'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE,PATCH,OPTIONS'
+    }
+    //axios.post(url, params, headers)
+    axios.get("http://192.168.35.4/admclntlk/cdrclnt.php", params, headers).then(responce => {
+        //debugger;
         props.loadgrid(responce.data.table)
     });
-
+}
     return (
     <div>
 
