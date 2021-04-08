@@ -4,8 +4,8 @@ const LOADGRID = 'LOADGRID';
 
 let initialState = {
     tableData:[
-        {id:1, numberPhone:9055682902, check:true},
-        {id:2, numberPhone:9055682331, check:false}
+        {id:1, src:9055682902, dst:0, check:true},
+        {id:2, src:9055682331, check:false}
     ],
     arrNumbers:[-1,0],
     numberValue:'-1'

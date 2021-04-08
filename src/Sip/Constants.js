@@ -38,12 +38,7 @@ export const ERROR_UNKNOWN = "Ошибка соединения с сервер�
 export const ERR_REQUEST_MESSAGE = "Произошла ошибка.Ответ сервера не получен";
 
 export const OBJ_SETTINGS_PROPS = {
-    '0': {id:'0',title:'0'},
-    '1': {id:'1',title:'1'},
-    '2': {id:'2',title:'2'},
-    '3': {id:'3',title:'3'},
-    '4': {id:'4',title:'4'},
-    '5': {id:'5',title:'5'},
+
     'billsec': {id:'billsec',title:'billsec'},
     'calldate': {id:'calldate',title:'calldate'},
     'disposition': {id:'disposition',title:'disposition'},
