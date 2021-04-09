@@ -2,18 +2,22 @@ import {Provider} from "react-redux";
 import {HashRouter, Route} from "react-router-dom";
 import SimpleBarContainer from "./containers/SimpleBarContainer";
 import GridDataContainer from "./containers/GridDataContainer";
+import AbonentListContainer from "./containers/AbonentListContainer";
+import Navbar from './components/Navbar';
+import './css/MainPage.css';
 
-const Test =(props)=> {
+const MainPage =(props)=> {
     return (
 
 
         <Provider store={props.store}>
 
             <HashRouter>
-                <div>
+                <div className='app-wrapper'>
 
                     Test passed ok!
                     <SimpleBarContainer />
+                    <Navbar />
                     <div>
                         <Route
                             exact
@@ -37,8 +41,16 @@ const Test =(props)=> {
                             path="/grid"
                             render={() => {
                                 /*this.props.setIsLogin(true);*/
-                                  console.log('route to /login');
+                                  console.log('route to /grid');
                                 return <GridDataContainer />/*<LoginForm/>*/;
+                            }}
+                        />
+                        <Route
+                            path="/abonentlist"
+                            render={() => {
+
+                                console.log('route to /abonentlist');
+                                return <AbonentListContainer />;
                             }}
                         />
                     </div>
@@ -49,4 +61,4 @@ const Test =(props)=> {
 
     )
 }
-export default Test;
+export default MainPage;

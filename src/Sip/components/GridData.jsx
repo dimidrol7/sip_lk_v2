@@ -1,7 +1,7 @@
 import React from "react";
 //TODO по поводу импорта стилей смотреть например видео номер 49 тайминг 48:11
 import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
+import {withStyles} from '@material-ui/core/styles';
 
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
@@ -11,7 +11,6 @@ import TableRow from '@material-ui/core/TableRow';
 import {checkedBoxAC} from "../reducers/GridDataReducer";
 import * as axios from "axios";
 import * as constants from '../Constants';
-
 
 
 /*const styles = (theme) => ({
@@ -33,7 +32,6 @@ import * as constants from '../Constants';
 });*/
 
 
-
 let GridData = props => {
 
     /*const { objTableID,dataTable,arrNumbers,numberValue,onChangeParam,classes} = props;*/
@@ -47,26 +45,25 @@ let GridData = props => {
     //http://192.168.35.4/admclntlk/cdrclnt.php
     //https://social-network.samuraijs.com/api/1.0/users
     //https://social-network.samuraijs.com/docs
-if (props.tableData.length<50)
-{
-    let params = {'HTTP_CONTENT_LANGUAGE': 'ru-RU'}
-    let headers = {
-        'Access-Control-Allow-Origin': '1localhost',
-        'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE,PATCH,OPTIONS'
+    if (props.tableData.length < 50) {
+        let params = {'HTTP_CONTENT_LANGUAGE': 'ru-RU'}
+        let headers = {
+            'Access-Control-Allow-Origin': '1localhost',
+            'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE,PATCH,OPTIONS'
+        }
+        //axios.post(url, params, headers)
+        axios.get("http://192.168.35.4/admclntlk/cdrclnt.php").then(responce => {
+            //debugger;
+            props.loadgrid(responce.data.table)
+        });
     }
-    //axios.post(url, params, headers)
-    axios.get("http://192.168.35.4/admclntlk/cdrclnt.php").then(responce => {
-        //debugger;
-        props.loadgrid(responce.data.table)
-    });
-}
     return (
-    <div>
+        <div>
 
-        GRIDDATA WILL BE HERE2
+            GRIDDATA WILL BE HERE2
 
 
-           <Table border={1}>
+            <Table border={1}>
                 <TableHead>
                     <TableRow>
                         {Object.values(constants.OBJ_SETTINGS_PROPS).map(row =>
@@ -79,42 +76,37 @@ if (props.tableData.length<50)
                 <TableBody>
 
                     {
-            props.tableData.map( r =>
+                        props.tableData.map(r =>
 
 
-                <TableRow>
+                            <TableRow>
 
-                        <TableCell>
-                            {r.check
-                                ? <button onClick={ () => {props.unchecked(r.id) } }>unchecked</button>
-                                : <button onClick={()=>{props.checked(r.id)}}>checked</button>}
-                        </TableCell>
-                        <TableCell>
-                                        {r.id}
-                                    </TableCell>
-                                    <TableCell>
-                                        {r.calldate}
-                                    </TableCell>
-                                     <TableCell>
-                                        {r.src}
-                                    </TableCell>
-                                    <TableCell>
-                                        {r.dst}
-                                    </TableCell>
+                                <TableCell>
+                                    {r.check
+                                        ? <button onClick={() => {
+                                            props.unchecked(r.id)
+                                        }}>unchecked</button>
+                                        : <button onClick={() => {
+                                            props.checked(r.id)
+                                        }}>checked</button>}
+                                </TableCell>
+                                <TableCell>
+                                    {r.id}
+                                </TableCell>
+                                <TableCell>
+                                    {r.calldate}
+                                </TableCell>
+                                <TableCell>
+                                    {r.src}
+                                </TableCell>
+                                <TableCell>
+                                    {r.dst}
+                                </TableCell>
                             </TableRow>
-
-
-)
+                        )
                     }
                 </TableBody>
             </Table>
-
-
-
-
-
-
-
 
 
         </div>

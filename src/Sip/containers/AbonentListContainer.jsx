@@ -1,8 +1,8 @@
 import React from "react";
-import GridData from "../components/GridDataC";
+import AbonentList from "../components/AbonentList";
 import {connect} from "react-redux";
 import { withStyles } from '@material-ui/core/styles';
-import {checkedBoxAC, gridData, setGridAC, uncheckedBoxAC} from "../reducers/GridDataReducer";
+import {checkedBoxAbntAC, abonentList, setAbntGridAC, uncheckedBoxAbntAC} from "../reducers/AbonentListReducer";
 import SimpleBar from "../components/SimpleBar";
 import * as constants from "../Constants";
 
@@ -43,7 +43,7 @@ render() {
 
 let mapStateToProps = (state) => {
     return {
-        tableData: state.sip.gridData.tableData
+        abntData: state.sip.abonentList.abntData
     }
 
 }
@@ -51,13 +51,13 @@ let mapStateToProps = (state) => {
 let mapDispatchToProps = (dispatch) => {
     return {
         checked: (rowId) => {
-            dispatch(checkedBoxAC(rowId))
+            dispatch(checkedBoxAbntAC(rowId))
         },
         unchecked: (rowId) => {
-            dispatch(uncheckedBoxAC(rowId))
+            dispatch(uncheckedBoxAbntAC(rowId))
         },
-        loadgrid: (tableData) => {
-            dispatch(setGridAC(tableData))
+        loadabnt: (abntData) => {
+            dispatch(setAbntGridAC(abntData))
         }
     }
 
@@ -67,4 +67,4 @@ let mapDispatchToProps = (dispatch) => {
 //export default connect(mapStateToProps,mapDispatchToProps)(GridData);
 
 //export default connect(mapStateToProps,mapDispatchToProps)(GridDataContainer);
-export default connect(mapStateToProps,mapDispatchToProps)(GridData);
+export default connect(mapStateToProps,mapDispatchToProps)(AbonentList);

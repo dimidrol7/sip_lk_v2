@@ -38,13 +38,20 @@ export const ERROR_UNKNOWN = "Ошибка соединения с сервер�
 export const ERR_REQUEST_MESSAGE = "Произошла ошибка.Ответ сервера не получен";
 
 export const OBJ_SETTINGS_PROPS = {
-
     'billsec': {id:'billsec',title:'billsec'},
     'calldate': {id:'calldate',title:'calldate'},
     'disposition': {id:'disposition',title:'disposition'},
     'dst': {id:'dst',title:'dst'},
     'duration': {id:'duration',title:'duration'},
     'src': {id:'src',title:'src'},
+};
+
+export const OBJ_ABNT_PROPS = {
+    'id': {id:'id',title:'id'},
+    'name': {id:'name',title:'name'},
+    'snum_forward': {id:'snum_forward',title:'snum_forward'},
+    'snum': {id:'snum',title:'snum'},
+
 };
 
 export const NUMBERS = 'Номера';
