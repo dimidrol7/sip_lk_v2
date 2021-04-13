@@ -5,6 +5,7 @@ import TableRow from "@material-ui/core/TableRow";
 import * as constants from "../Constants";
 import TableCell from "@material-ui/core/TableCell";
 import TableBody from "@material-ui/core/TableBody";
+import Pagination from '@material-ui/lab/Pagination';
 import * as axios from "axios";
 
 class GridData extends React.Component {
@@ -32,7 +33,14 @@ constructor(props) {
         return (
             /*<div onLoad={this.getGridData()}>*/
             <div>
-                GRIDDATA WILL BE HERE2
+                <div>
+                    <Pagination count={10} />
+                    <span>1</span>
+                    <span>2</span>
+                    <span>3</span>
+                    <span>4</span>
+                </div>
+                 GRIDDATA WILL BE HERE2
                 <Table border={1}>
                     <TableHead>
                         <TableRow>

@@ -9,23 +9,27 @@ import * as axios from "axios";
 
 class AbonentList extends React.Component {
 
-constructor(props) {
+/*constructor(props) {
     super(props);
     //alert('constructor AbonentList done!');
+
+}*/
+
+componentDidMount() {
     axios.get("http://192.168.35.4/admclntlk/abntlst.php").then(responce => {
         this.props.loadabnt(responce.data.table)
     });
 }
 
-/*getGridData = () =>
-{
-    if (this.props.tableData.length < 3) {
-        axios.get("http://192.168.35.4/admclntlk/cdrclnt.php").then(responce => {
-            //debugger;
-            this.props.loadgrid(responce.data.table)
-        });
-    }
-}*/
+    /*getGridData = () =>
+    {
+        if (this.props.tableData.length < 3) {
+            axios.get("http://192.168.35.4/admclntlk/cdrclnt.php").then(responce => {
+                //debugger;
+                this.props.loadgrid(responce.data.table)
+            });
+        }
+    }*/
 
     render() {//debugger;
         return (
