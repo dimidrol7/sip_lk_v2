@@ -6,8 +6,10 @@ import * as constants from "../Constants";
 import TableCell from "@material-ui/core/TableCell";
 import TableBody from "@material-ui/core/TableBody";
 import * as axios from "axios";
+import Pagination from "@material-ui/lab/Pagination";
+import CircularProgress from "@material-ui/core/CircularProgress";
 
-class AbonentList extends React.Component {
+let AbonentList = (props) => {
 
 /*constructor(props) {
     super(props);
@@ -15,11 +17,7 @@ class AbonentList extends React.Component {
 
 }*/
 
-componentDidMount() {
-    axios.get("http://192.168.35.4/admclntlk/abntlst.php").then(responce => {
-        this.props.loadabnt(responce.data.table)
-    });
-}
+
 
     /*getGridData = () =>
     {
@@ -30,12 +28,33 @@ componentDidMount() {
             });
         }
     }*/
+    /*onPageChanged = (pageNumber) => {
+        this.props.pagechange(pageNumber);
+        alert(`http://192.168.35.4/admclntlk/abntlst.php?page=${pageNumber}&count=${this.props.pageSize}`);
+        axios.get(`http://192.168.35.4/admclntlk/abntlst.php?page=${pageNumber}&count=${this.props.pageSize}`).then(responce => {
+            this.props.loadabnt(responce.data.table)
+        });
+    }*/
 
-    render() {//debugger;
+
+
+//debugger;
+        let countOfPages = Math.ceil(props.totalAbonentCount / props.pageSize);
+        //alert(this.props.totalAbonentCount);
+        //alert(this.props.pageSize);
+
+
+
         return (
+
             /*<div onLoad={this.getGridData()}>*/
             <div>
-                ABONENTLIST WILL BE HERE2
+                <div>
+                    <Pagination count={countOfPages}  /*onChange={(e) => this.onPageChanged(e)}*/ onChange={props.handleChange} />
+                </div>
+
+
+                ABONENTLIST WILL BE HERE2 {props.currentPage}
                 <Table border={1}>
                     <TableHead>
                         <TableRow>
@@ -49,15 +68,15 @@ componentDidMount() {
                     </TableHead>
                     <TableBody>
                         {
-                            this.props.abntData.map(r =>
+                            props.abntData.map(r =>
                                 <TableRow>
                                     <TableCell>
                                         {r.check
                                             ? <button onClick={() => {
-                                                this.props.unchecked(r.id)
+                                                props.unchecked(r.id)
                                             }}>unchecked</button>
                                             : <button onClick={() => {
-                                                this.props.checked(r.id)
+                                                props.checked(r.id)
                                             }}>checked</button>}
                                     </TableCell>
                                     <TableCell>
@@ -80,7 +99,7 @@ componentDidMount() {
 
             </div>
         )
-    }
 }
+
 
 export default AbonentList;
