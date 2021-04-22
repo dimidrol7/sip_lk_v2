@@ -34,7 +34,7 @@ import * as constants from '../Constants';
 
 let GridData = props => {
 
-    /*const { objTableID,dataTable,arrNumbers,numberValue,onChangeParam,classes} = props;*/
+y    /*const { objTableID,dataTable,arrNumbers,numberValue,onChangeParam,classes} = props;*/
 
     console.log(props.tableData);
     console.log(props.tableData.length);

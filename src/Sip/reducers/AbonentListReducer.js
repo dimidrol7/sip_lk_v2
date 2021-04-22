@@ -7,7 +7,7 @@ const TOGGLE_IS_FETCHING = 'TOGGLE_IS_FETCHING';
 
 let initialState = {
     abntData:[],
-    pageSize:5,
+    pageSize:50,
     totalAbonentCount:0,
     currentPage:1,
     isFetching:true,
@@ -65,8 +65,8 @@ const abonentList = (state = initialState, action) =>
 
 }
 
-export const checkedBoxAbntAC = (rowId) => ({type: CHECKEDABNT, rowId})
-export const uncheckedBoxAbntAC = (rowId) => ({type: UNCHECKEDABNT, rowId})
+export const checked = (rowId) => ({type: CHECKEDABNT, rowId})
+export const unchecked = (rowId) => ({type: UNCHECKEDABNT, rowId})
 export const setAbntGridAC = (abntData) => ({type: LOADABNT, abntData})
 export const setCurrentPageAC = (currentPage) => ({type: PAGECHANGE, currentPage})
 export const setTotalAbonentCountAC = (totalCount) => ({type: TOTALCOUNT, totalCount})
