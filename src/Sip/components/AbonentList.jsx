@@ -8,6 +8,7 @@ import TableBody from "@material-ui/core/TableBody";
 import * as axios from "axios";
 import Pagination from "@material-ui/lab/Pagination";
 import CircularProgress from "@material-ui/core/CircularProgress";
+import {NavLink} from "react-router-dom";
 
 let AbonentList = (props) => {
 
@@ -86,7 +87,9 @@ let AbonentList = (props) => {
                                         {r.name}
                                     </TableCell>
                                     <TableCell>
-                                        {r.snum}
+                                        <NavLink to={'/abonent/' + r.id}>
+                                            {r.snum}
+                                        </NavLink>
                                     </TableCell>
                                     <TableCell>
                                         {r.snum_forward}
