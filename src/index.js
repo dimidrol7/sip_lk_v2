@@ -7,6 +7,7 @@ import MainPage from "./Sip/MainPage";
 import {simpleBar} from './Sip/reducers/SimpleBarReducer';
 import gridData from './Sip/reducers/GridDataReducer';
 import abonentList from './Sip/reducers/AbonentListReducer';
+import loginForm from './Sip/reducers/LoginFormReducer';
 import {combineReducers, createStore} from "redux";
 
 /*const store = configureStore('sip', combineReducers({sip: combineReducers(Object.assign(
@@ -22,7 +23,9 @@ let reducers = combineReducers({
     sip: combineReducers({
         simpleBar: simpleBar,
         gridData: gridData,
-        abonentList: abonentList
+        abonentList: abonentList,
+        loginForm: loginForm
+
     })
 });
 

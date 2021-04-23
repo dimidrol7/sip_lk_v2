@@ -5,6 +5,7 @@ import GridDataContainer from "./containers/GridDataContainer";
 import AbonentListContainer from "./containers/AbonentListContainer";
 import Navbar from './components/Navbar';
 import './css/MainPage.css';
+import LoginFormContainer from "./containers/LoginFormContainer";
 
 const MainPage =(props)=> {
     return (
@@ -19,6 +20,7 @@ const MainPage =(props)=> {
                     <SimpleBarContainer />
                     <Navbar />
                     <div>
+
                         <Route
                             exact
                             path="/"
@@ -34,7 +36,8 @@ const MainPage =(props)=> {
                             render={() => {
                                 /*this.props.setIsLogin(true);*/
                                 console.log('route to /login');
-                                return <div>page /login</div>/*<LoginForm/>*/;
+                                alert('RootSip Login');
+                                return <LoginFormContainer/>;
                             }}
                         />
                         <Route

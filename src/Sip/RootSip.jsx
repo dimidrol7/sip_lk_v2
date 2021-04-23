@@ -37,6 +37,7 @@ class RootSip extends React.Component {
                                 render={() => {
                                     this.props.setIsLogin(true);
                                     console.log('route to /login');
+                                    alert('RootSip Login');
                                     return <LoginForm />;
                                 }}
                             />
