@@ -6,7 +6,7 @@ import AbonentListContainer from "./containers/AbonentListContainer";
 import Navbar from './components/Navbar';
 import './css/MainPage.css';
 import LoginFormContainer from "./containers/LoginFormContainer";
-import AONListContainer from "./containers/PhoneListContainer";
+import PhoneListContainer from "./containers/PhoneListContainer";
 
 const MainPage =(props)=> {
     return (
@@ -33,12 +33,12 @@ const MainPage =(props)=> {
                             }}
                         />
                         <Route
-                            path="/aon"
+                            path="/phonelist"
                             render={() => {
                                 /*this.props.setIsLogin(true);*/
-                                console.log('route to /aon');
-                                alert('aon page click');
-                                return <AONListContainer/>;
+                                console.log('route to /phonelist');
+                                /*alert('aon page click');*/
+                                return <PhoneListContainer/>;
                             }}
                         />
                         <Route

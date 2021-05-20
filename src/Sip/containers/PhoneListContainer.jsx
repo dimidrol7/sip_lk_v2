@@ -1,8 +1,8 @@
 import React from "react";
-import AbonentList from "../components/AbonentList";
+import PhoneList from "../components/PhoneList";
 import {connect} from "react-redux";
 import {withStyles} from '@material-ui/core/styles';
-import {
+/*import {
     checked,
     abonentList,
     setAbntGridAC,
@@ -10,7 +10,11 @@ import {
     setCurrentPageAC,
     setTotalAbonentCountAC,
     toggleIsFetchingAC
-} from "../reducers/AbonentListReducer";
+} from "../reducers/AbonentListReducer";*/
+import {
+    phoneList,
+    setAbntGridAC
+} from "../reducers/PhoneListReducer";
 import SimpleBar from "../components/SimpleBar";
 import * as constants from "../Constants";
 import * as axios from "axios";
@@ -37,25 +41,17 @@ import Preloader from "../components/common/Preloader";
     </div>
 }*/
 
-class AbonentListContainer extends React.PureComponent {
+class PhoneListContainer extends React.PureComponent {
 
-    handleChange = (event, value) => {
-        this.props.toggleisfetching(true);
-        this.props.pagechange(value);
-        axios.get(`http://192.168.35.4/admclntlk/phonelst.php?page=${value}&count=${this.props.pageSize}`).then(responce => {
-            this.props.toggleisfetching(false);
-            this.props.loadabnt(responce.data.table)
-        });
-        /*alert(value);*/
-    };
+
 
     componentDidMount() {
         //alert(this.props.currentPage);
-        this.props.toggleisfetching(true);
-        axios.get(`http://192.168.35.4/admclntlk/phonelst.php?page=${this.props.currentPage}&count=${this.props.pageSize}`).then(responce => {
-            this.props.toggleisfetching(false);
+        //this.props.toggleisfetching(true);
+        axios.get(`http://192.168.35.4/admclntlk/phonelst.php?page=1&count=1000`).then(responce => {
+            //this.props.toggleisfetching(false);
             this.props.loadabnt(responce.data.table);
-            this.props.settotalabonentcount(responce.data.total_count);
+            //this.props.settotalabonentcount(responce.data.total_count);
         });
     }
 
@@ -63,8 +59,8 @@ class AbonentListContainer extends React.PureComponent {
     render() {
         return (
             <>
-                {this.props.isFetching ? <Preloader/> : null}
-                <AbonentList abntData={this.props.abntData}
+                {/*{this.props.isFetching ? <Preloader/> : null}*/}
+                <PhoneList phoneData={this.props.phoneData}
                              objTableID={constants.OBJ_SETTINGS_PROPS}
                              arrNumbers={this.props.arrNumbers}
                              totalAbonentCount={this.props.totalAbonentCount}
@@ -83,11 +79,7 @@ class AbonentListContainer extends React.PureComponent {
 
 let mapStateToProps = (state) => {
     return {
-        abntData: state.sip.abonentList.abntData,
-        pageSize: state.sip.abonentList.pageSize,
-        totalAbonentCount: state.sip.abonentList.totalAbonentCount,
-        currentPage: state.sip.abonentList.currentPage,
-        isFetching: state.sip.abonentList.isFetching,
+        phoneData: state.sip.phoneList.phoneData,
     }
 
 }
@@ -122,11 +114,8 @@ let mapStateToProps = (state) => {
                 //export default connect(mapStateToProps,mapDispatchToProps)(GridDataContainer);
                 //export default connect(mapStateToProps,mapDispatchToProps)(AbonentListContainer);
 export default connect(mapStateToProps,
-    {checked,
-        unchecked,
-        loadabnt: setAbntGridAC,
-        pagechange: setCurrentPageAC,
-        settotalabonentcount: setTotalAbonentCountAC,
-        toggleisfetching: toggleIsFetchingAC}
-    )(AbonentListContainer);
+    {
+        loadabnt: setAbntGridAC
+    }
+    )(PhoneListContainer);
 

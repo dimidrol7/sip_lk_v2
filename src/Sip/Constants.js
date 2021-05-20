@@ -51,7 +51,11 @@ export const OBJ_ABNT_PROPS = {
     'name': {id:'name',title:'name'},
     'snum_forward': {id:'snum_forward',title:'snum_forward'},
     'snum': {id:'snum',title:'snum'},
+};
 
+export const OBJ_PHONE_PROPS = {
+    'id': {id:'id',title:'id'},
+    'exten': {id:'exten',title:'exten'},
 };
 
 export const NUMBERS = 'Номера';
