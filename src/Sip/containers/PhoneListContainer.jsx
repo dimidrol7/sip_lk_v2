@@ -13,7 +13,8 @@ import {withStyles} from '@material-ui/core/styles';
 } from "../reducers/AbonentListReducer";*/
 import {
     phoneList,
-    setAbntGridAC
+    setAbntGridAC,
+    setPhoneInfoAC
 } from "../reducers/PhoneListReducer";
 import SimpleBar from "../components/SimpleBar";
 import * as constants from "../Constants";
@@ -115,7 +116,8 @@ let mapStateToProps = (state) => {
                 //export default connect(mapStateToProps,mapDispatchToProps)(AbonentListContainer);
 export default connect(mapStateToProps,
     {
-        loadabnt: setAbntGridAC
+        loadabnt: setAbntGridAC,
+        setPhoneInfoAC
     }
     )(PhoneListContainer);
 

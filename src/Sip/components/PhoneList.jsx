@@ -77,13 +77,17 @@ let PhoneList = (props) => {
                                             : <button onClick={() => {
                                                 props.checked(r.id)
                                             }}>checked</button>}*/}
-                                    </TableCell>
-                                    <TableCell>
                                         {r.id}
                                     </TableCell>
                                     <TableCell>
                                         {r.exten}
                                     </TableCell>
+                                    <TableCell>
+                                        <NavLink to={'/abonent/' + r.id}>
+                                            {r.exten}
+                                        </NavLink>
+                                    </TableCell>
+
                                     {/*<TableCell>
                                         <NavLink to={'/abonent/' + r.id}>
                                             {r.snum}
